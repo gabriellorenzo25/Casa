@@ -1,46 +1,82 @@
 
-    let currentIndex = 0;
-    const items = document.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
-    const itemWidth = items[0].offsetWidth + 30; // largura do item + margem
-    const track = document.querySelector('.carousel-track');
-    // função para mostrar o próximo item no carrossel
-    document.getElementById('nextBtn').addEventListener('click', function() {
+let currentIndex = 0;
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
+const itemWidth = items[0].offsetWidth + 30; // largura do item + margem
+const track = document.querySelector('.carousel-track'); // Apenas uma declaração de 'track'
+
+// função para mostrar o próximo item no carrossel
+document.getElementById('nextBtn').addEventListener('click', function() {
     if (currentIndex < totalItems - 3) { // mostra 3 itens de cada vez
-    currentIndex++;
+        currentIndex++;
     } else {
-    currentIndex = 0; // volta ao início
+        currentIndex = 0; // volta ao início
     }
     updateCarousel();
-    });
+});
 
-
-    // função para mostrar o item anterior no carrossel
-    document.getElementById('prevBtn').addEventListener('click', function() {
+// função para mostrar o item anterior no carrossel
+document.getElementById('prevBtn').addEventListener('click', function() {
     if (currentIndex > 0) {
-    currentIndex--;
+        currentIndex--;
     } else {
-    currentIndex = totalItems - 3; // vai para o último conjunto de itens
+        currentIndex = totalItems - 3; // vai para o último conjunto de itens
     }
     updateCarousel();
-    });
+});
 
-
-    // atualiza a posição do carrossel
-    function updateCarousel() {
+// atualiza a posição do carrossel
+function updateCarousel() {
     const distanceToMove = currentIndex * itemWidth;
     track.style.transform = `translateX(-${distanceToMove}px)`; // movimenta o carrossel
-    }
-            
-    // adiciona um evento de clique a cada item do carrossel
-    items.forEach(item => {
+}
+        
+// adiciona um evento de clique a cada item do carrossel
+items.forEach(item => {
     item.addEventListener('click', function() {
-    const page = item.getAttribute('data-page');
-    if (page) {
-    window.location.href = page; // redireciona para a página correspondente
-    }
+        const page = item.getAttribute('data-page');
+        if (page) {
+            window.location.href = page; // redireciona para a página correspondente
+        }
     });
-    });
+});
+
+let startX, scrollLeft;
+
+// Funções de arrastar para o carrossel em dispositivos móveis e desktop
+track.addEventListener('mousedown', (e) => {
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.classList.add('active');
+});
+
+track.addEventListener('mouseleave', () => {
+    track.classList.remove('active');
+});
+
+track.addEventListener('mouseup', () => {
+    track.classList.remove('active');
+});
+
+track.addEventListener('mousemove', (e) => {
+    if (!track.classList.contains('active')) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; 
+    track.scrollLeft = scrollLeft - walk;
+});
+
+track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+});
+
+track.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX - track.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+});
+
 
         //...............................//
 
