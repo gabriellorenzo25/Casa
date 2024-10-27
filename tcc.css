@@ -164,7 +164,7 @@ body {
 
 
 /*Celular*/
-@media (max-width: 480px){
+@media (max-width: 768px){
     /*testeee*/
     .navbar {
         font-size: 23px; 
