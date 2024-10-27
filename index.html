@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>TCC</title>
-<link rel="stylesheet" href="tcc.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>TCC</title>
+    <link rel="stylesheet" href="tcc.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
@@ -18,11 +18,25 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Texto Introdutório -->
+    <section class="intro-text">
+        <h1>Bem-vindo ao Mundo dos Componentes de Computador</h1>
+        <p>Este site foi desenvolvido como parte de um TCC do curso de Manutenção de Computadores...</p>
+        <p>Nossa guia é estruturado com três perguntas principais:</p>
+        <ol>
+            <li><strong>Para que serve?</strong> Entenda a função exata de cada peça...</li>
+            <li><strong>Quando foi criado?</strong> Descubra a história por trás do desenvolvimento...</li>
+            <li><strong>Quem inventou?</strong> Conheça as pessoas por trás dessas inovações...</li>
+        </ol>
+        <p>Explore cada peça e descubra o fascinante mundo dos componentes de computador...</p>
+    </section>
+
     <!-- Carrossel de temas -->
     <div class="carousel-container">
         <button class="nav-button" id="prevBtn">Anterior</button>
         <div class="carousel">
-              <div class="carousel-track">
+            <div class="carousel-track">
                 <div class="carousel-item" data-page="cabo-alimentação.html">
                     Cabo de Alimentação
                     <img src="imagens PNG/cabo de alimentação.webp" alt="Cabo de Alimentação">
@@ -82,13 +96,13 @@
                 <div class="carousel-item" data-page="fonte_de_energia.html">
                     Fonte de Energia
                     <img src="imagens PNG/fonte.webp" alt="Fonte de Energia">
-                </div>                           
+                </div>
             </div>
         </div>
         <button class="nav-button" id="nextBtn">Próximo</button>
-     </div>
+    </div>
 
-     <script src="home.js"></script>
+    <script src="home.js"></script>
     <footer>
         <p>© 2024 Componentes de Computador. Todos os direitos reservados.</p>
     </footer>
