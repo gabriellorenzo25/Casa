@@ -9,15 +9,16 @@
 <body>
     <header class="navbar">
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
+            <ul class="menu">
+                <li><a href="index.html" class="cabeçalho">Home</a></li>
+                <li><a href="sobre.html" class="cabeçalho">Sobre Nós</a></li>
                 <li class="search-container">
-                    <input type="text" id="searchInput" placeholder="Pesquisar...">
+                    <input type="text" id="searchInput" class="searchInput" placeholder="Pesquisar...">
                 </li>
             </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </nav>
-    </header>
+    </header>    
 
     <!-- Texto Introdutório -->
     <section class="intro-text">
@@ -39,7 +40,7 @@
             <div class="carousel-track">
                 <div class="carousel-item" data-page="cabo-alimentação.html">
                     Cabo de Alimentação
-                    <img src="imagens PNG/cabo de alimentação.webp" alt="Cabo de Alimentação">
+                    <img src="imagens PNG/cabo de alimentação.webp" alt="Cabo de Alimentação"   >
                 </div>
                 <div class="carousel-item" data-page="cabo-rede.html">
                     Cabo de Rede
@@ -49,10 +50,14 @@
                     Cabo SATA
                     <img src="imagens PNG/cabo sata.png" alt="Cabo SATA">
                 </div>
+
+
                 <div class="carousel-item" data-page="cabo-vga.html">
                     Cabo VGA
-                    <img src="imagens PNG/vga.png" alt="Cabo VGA">
+                    <img  src="imagens PNG/vga.png" alt="Cabo VGA">
                 </div>
+
+
                 <div class="carousel-item" data-page="cooler.html">
                     Cooler
                     <img src="imagens PNG/cooler.webp" alt="Cooler">
